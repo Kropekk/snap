@@ -2066,14 +2066,14 @@ private:
 public:
   TVec<TVal> V;
 public:
-  PVec<TVal>(): V(){}
-  PVec<TVal>(const PVec<TVal>& Vec): V(Vec.V){}
+  PVec(): V(){}
+  PVec(const PVec<TVal>& Vec): V(Vec.V){}
   static TPt<PVec<TVal> > New(){
     return new PVec<TVal>();}
-  PVec<TVal>(const int& MxVals, const int& Vals): V(MxVals, Vals){}
+  PVec(const int& MxVals, const int& Vals): V(MxVals, Vals){}
   static TPt<PVec<TVal> > New(const int& MxVals, const int& Vals){
     return new PVec<TVal>(MxVals, Vals);}
-  PVec<TVal>(const TVec<TVal>& _V): V(_V){}
+  PVec(const TVec<TVal>& _V): V(_V){}
   static TPt<PVec<TVal> > New(const TVec<TVal>& V){
     return new PVec<TVal>(V);}
   explicit PVec<TVal>(TSIn& SIn): V(SIn){}

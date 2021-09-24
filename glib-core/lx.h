@@ -181,11 +181,11 @@ public:
   int GetInt(){GetSym(TFSet()|syInt); return Int;}
   double GetFlt(){GetSym(TFSet()|syFlt); return Flt;}
   TStr GetStr(const TStr& _Str=TStr()){
-    GetSym(TFSet()|syStr); IAssert(_Str.Empty()||(_Str==Str)); return Str;}
+    GetSym(TFSet()|syStr); IAssert(_Str.Empty()||(_Str.operator==(Str))); return Str;}
   TStr GetIdStr(const TStr& IdStr=TStr()){
-    GetSym(TFSet()|syIdStr); IAssert(IdStr.Empty()||(IdStr==Str)); return Str;}
+    GetSym(TFSet()|syIdStr); IAssert(IdStr.Empty()||(IdStr.operator==(Str))); return Str;}
   TStr GetQStr(const TStr& QStr=TStr()){
-    GetSym(TFSet()|syQStr); IAssert(QStr.Empty()||(Str==QStr)); return Str;}
+    GetSym(TFSet()|syQStr); IAssert(QStr.Empty()||(Str.operator==(QStr))); return Str;}
   void GetEoln(){GetSym(TFSet()|syEoln);}
   TStr GetStrToCh(const char& ToCh);
   TStr GetStrToEolnOrCh(const char& ToCh);
@@ -205,7 +205,7 @@ public:
   static TStr GetQStr(const TStr& Str, const bool& QuoteP, const char& QuoteCh);
 
   bool IsVar(const TStr& VarNm){
-    GetSym(); bool Var=((Sym==syIdStr)&&(Str==VarNm)); PutSym(); return Var;}
+    GetSym(); bool Var=((Sym==syIdStr)&&(Str.operator==(VarNm))); PutSym(); return Var;}
   void GetVar(const TStr& VarNm,
    const bool& LBracket=false, const bool& NewLn=false){
     GetIdStr(VarNm); GetSym(syColon);

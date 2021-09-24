@@ -684,13 +684,13 @@ private:
 public:
   THash<TKey, TDat> H;
 public:
-  PHash<TKey, TDat>(): H(){}
+  PHash(): H(){}
   static TPt<PHash<TKey, TDat> > New(){
     return new PHash<TKey, TDat>();}
-  PHash<TKey, TDat>(const int& MxVals, const int& Vals): H(MxVals, Vals){}
+  PHash(const int& MxVals, const int& Vals): H(MxVals, Vals){}
   static TPt<PHash<TKey, TDat> > New(const int& MxVals, const int& Vals){
     return new PHash<TKey, TDat>(MxVals, Vals);}
-  PHash<TKey, TDat>(const THash<TKey, TDat>& _V): H(_V){}
+  PHash(const THash<TKey, TDat>& _V): H(_V){}
   static TPt<PHash<TKey, TDat> > New(const THash<TKey, TDat>& H){
     return new PHash<TKey, TDat>(H);}
   explicit PHash<TKey, TDat>(TSIn& SIn): H(SIn){}

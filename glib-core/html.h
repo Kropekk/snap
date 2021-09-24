@@ -47,8 +47,8 @@ public:
      (Ch=='.')||(Ch=='-')||(Ch==':')||(Ch=='/')||(Ch=='~');}
 
   // upper/lower-case & escape-string operations
-  bool IsUc(const char& Ch) const {return Ch==UcChV[Ch-TCh::Mn];}
-  bool IsLc(const char& Ch) const {return Ch==LcChV[Ch-TCh::Mn];}
+  bool IsUc(const char& Ch) const {return UcChV[Ch-TCh::Mn].operator==(Ch);}
+  bool IsLc(const char& Ch) const {return LcChV[Ch-TCh::Mn].operator==(Ch);}
   char GetUc(const char& Ch) const {return UcChV[Ch-TCh::Mn];}
   char GetLc(const char& Ch) const {return LcChV[Ch-TCh::Mn];}
   void GetUcChA(TChA& ChA) const {
